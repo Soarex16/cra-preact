@@ -3,26 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "preact": "^10.3.2",
+    "react-scripts": "3.4.0",
+    "typescript": "~3.7.2"
+  },
+  "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0",
-    "typescript": "~3.7.2"
+    "cross-env": "^7.0.0",
+    "react-app-rewired": "^2.1.5",
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "cross-env ANALYZE_BUNDLE=true ANALYZER_MODE='disabled' react-app-rewired build",
+    "analyze-bundle": "cross-env ANALYZE_BUNDLE=true ANALYZER_MODE='server' react-app-rewired build",
+    "test": "react-app-rewired test"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^react$": "preact/compat",
+      "^react-dom$": "preact/compat",
+      "^react-dom/server$": "preact-render-to-string",
+      "react-dom/test-utils": "preact/test-utils",
+      "^react-addons-test-utils$": "preact-test-utils",
+      "^react-addons-transition-group$": "preact-transition-group"
+    }
   },
   "browserslist": {
     "production": [
