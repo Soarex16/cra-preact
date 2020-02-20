@@ -1,21 +1,23 @@
 import React from 'react';
-import logo from '../../logo.svg';
-import styles from './App.module.css';
+
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import IndexPage from '../routes/indexPage/IndexPage';
+import ParamPage from '../routes/param/ParamPage';
+
 
 function App() {
 
     return (
-        <div className={styles.App}>
-            <header className={styles.appHeader}>
-                <img src={logo} className={styles.appLogo} alt='logo' />
+        <Router>
+            <Route path={'/'}>
+                <IndexPage />
+            </Route>
 
-                <p>
-                    <code>This is a simple boilerplate for aliasing React.JS with PreactX</code>
-                </p>
-
-                <a className={styles.appButtonLink} href={'https://github.com/Soarex16'}>Visit my GitHub for more information</a>
-            </header>
-        </div>
+            <Route path={'/:somestr'}>
+                <ParamPage />
+            </Route>
+        </Router>
     );
 }
 
