@@ -6,7 +6,7 @@ Based on [Create React App](https://github.com/facebook/create-react-app) with s
 
 ## Available Scripts
 
-All standard create-react-app scripts except eject. Seriously, you don’t need it, the template has [react-app-rewired](https://github.com/timarney/react-app-rewired).
+All standard create-react-app scripts except **eject**. Seriously, you don’t need it, the template has [react-app-rewired](https://github.com/timarney/react-app-rewired).
 
 ## Learn More
 
