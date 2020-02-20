@@ -7,10 +7,8 @@ import App from './components/app/App';
 
 const rootElement: HTMLElement | null = document.getElementById('root');
 if (rootElement?.hasChildNodes()) {
-    console.log("hydrated");
     ReactDOM.hydrate(<App />, rootElement);
 } else {
-    console.log("rendered");
     ReactDOM.render(<App />, rootElement);
 }
 
