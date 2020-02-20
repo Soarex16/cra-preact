@@ -11,7 +11,7 @@ function App() {
     return (
         <Router>
             <Switch>
-                <Route path={'/:somestr'}>
+                <Route path={'/:parameter'}>
                     <ParamPage />
                 </Route>
 

@@ -1,28 +1,29 @@
 import styles from '../../app/App.module.css';
 import logo from '../../../logo.svg';
 import React from 'react';
-import {Link, RouteChildrenProps} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
-interface ParamPageRouteProps {
-    somestr: string;
-}
+const ParamPage: React.FC = () => {
 
-const ParamPage: React.FC<Partial<RouteChildrenProps<ParamPageRouteProps>>> = (props) => (
-    <div className={styles.App}>
-        <header className={styles.appHeader}>
-            <img src={logo} className={styles.appLogo} alt='logo' />
+    const { parameter } = useParams();
 
-            <p>
-                <code>This is a simple boilerplate for aliasing React.JS with PreactX</code>
-            </p>
+    return (
+        <div className={styles.App}>
+            <header className={styles.appHeader}>
+                <img src={logo} className={styles.appLogo} alt='logo' />
 
-            <p>
-                I can see route props! <code>{props?.match?.params.somestr}</code>
-            </p>
+                <p>
+                    <code>This is a simple boilerplate for aliasing React.JS with PreactX</code>
+                </p>
 
-            <Link className={styles.appButtonLink} to={'/'}>Go to main page</Link>
-        </header>
-    </div>
-);
+                <p>
+                    I can see route props! <code>{parameter}</code>
+                </p>
+
+                <Link className={styles.appButtonLink} to={'/'}>Go to main page</Link>
+            </header>
+        </div>
+    );
+};
 
 export default ParamPage;
